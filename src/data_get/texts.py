@@ -316,8 +316,13 @@ class Group:
             types.InlineKeyboardButton(
                 text="Вивести всю інформацію",
                 callback_data="data_get_group_all"
+            ),
+            types.InlineKeyboardButton(
+                text="Назад",
+                callback_data="data_get"
             )
-        ]
+        ],
+        width=1
     )
 
     class All:
