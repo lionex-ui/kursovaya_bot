@@ -5,7 +5,7 @@ metadata = MetaData()
 
 
 group = Table(
-    "group_data",
+    "group",
     metadata,
     Column("id", Integer, primary_key=True),
     Column("name", VARCHAR(50), nullable=False)
@@ -13,10 +13,10 @@ group = Table(
 
 
 child = Table(
-    "child_data",
+    "child",
     metadata,
     Column("id", Integer, primary_key=True),
-    Column("group_id", Integer, ForeignKey("group_data.id"), nullable=False),
+    Column("group_id", Integer, ForeignKey("group.id", ondelete="CASCADE"), nullable=False),
     Column("first_name", VARCHAR(15), nullable=False),
     Column("last_name", VARCHAR(15), nullable=False),
     Column("sex", VARCHAR(1), nullable=False),
@@ -24,10 +24,10 @@ child = Table(
 )
 
 educator = Table(
-    "educator_data",
+    "educator",
     metadata,
     Column("id", Integer, primary_key=True),
-    Column("group_id", Integer, ForeignKey("group_data.id"), nullable=False),
+    Column("group_id", Integer, ForeignKey("group.id", ondelete="CASCADE"), nullable=False),
     Column("first_name", VARCHAR(15), nullable=False),
     Column("last_name", VARCHAR(15), nullable=False),
     Column("sex", VARCHAR(1), nullable=False),

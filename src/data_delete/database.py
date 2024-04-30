@@ -33,12 +33,6 @@ async def delete_group(
         session: AsyncSession
 ) -> None:
 
-    stmt = delete(child).where(child.c.group_id == group_id)
-    await session.execute(stmt)
-
-    stmt = delete(educator).where(educator.c.group_id == group_id)
-    await session.execute(stmt)
-
     stmt = delete(group).where(group.c.id == group_id)
     await session.execute(stmt)
 
