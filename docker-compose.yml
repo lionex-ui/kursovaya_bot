@@ -5,9 +5,9 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_USER: dima
-      POSTGRES_PASSWORD: dima
-      POSTGRES_DB: panel
+      POSTGRES_USER: *
+      POSTGRES_PASSWORD: *
+      POSTGRES_DB: *
     ports:
       - "5432:5432"
     volumes:
@@ -17,8 +17,8 @@ services:
     image: dpage/pgadmin4
     restart: always
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@root.com
-      PGADMIN_DEFAULT_PASSWORD: 44FUg7Z7
+      PGADMIN_DEFAULT_EMAIL: *
+      PGADMIN_DEFAULT_PASSWORD: *
       PGADMIN_LISTEN_PORT: 5050
     ports:
       - "5050:5050"
